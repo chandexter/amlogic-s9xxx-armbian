@@ -16,6 +16,7 @@ on:
         type: choice
         options:
           - all
+          - bullseye
           - trixie
           - bookworm
           - resolute
@@ -27,6 +28,7 @@ on:
         type: choice
         options:
           - allwinner
+          - bullseye
           - amlogic
           - rockchip50
           - rockchip50_100
@@ -327,7 +329,7 @@ jobs:
         id: set-matrix
         run: |
           if [[ "${{ inputs.set_release }}" == "all" ]]; then
-            MATRIX='{"include":[{"release":"trixie"},{"release":"bookworm"},{"release":"resolute"},{"release":"noble"}]}'
+            MATRIX='{"include":[{"release":"bullseye"}]}'
           else
             MATRIX='{"include":[{"release":"${{ inputs.set_release }}"}]}'
           fi
